@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Imagem em Ação</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link rel="icon shortcut" type="image/x-icon" href="assets/imagens/favicon.png" />
+    <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/lib/fontawesome/css/all.min.css">
+    <script type="text/javascript" src="assets/lib/jquery-3.4.1.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+<div class="d-none">
+    <audio class="my_audio" controls preload="none">
+        <source src="assets/som/final.mp3" type="audio/mpeg">
+    </audio>
+</div>
+<div id="ganhoupai" style="display: none;">
+    <h1>Time <span id="nometime2"></span> ganhou!</h1>
+</div>
+    <div id="modalbg" style="display: none;" class="text-center">
+        <div id="contadorpai" class="text-center" style="display: none;">
+            <h1 class="text-white" id="contador"></h1>
+            <hr>
+            <button id="acertoubtn" class="btn btn-lg btn-primary">Acertou</button>
+            <hr>
+            <button id="erroubtn" class="btn btn-lg btn-primary">Errou</button>
+        </div>
+        <div class="campocentral">
+            <div class="dados">
+                <div class="dado dadogif">
+                </div>
+                <div class="dado dado1">
+                </div>
+                <div class="dado dado2">
+                </div>
+                <div class="dado dado3">
+                </div>
+                <div class="dado dado4">
+                </div>
+                <div class="dado dado5">
+                </div>
+                <div class="dado dado6">
+                </div>
+            </div>
+            <div id="showtipo">
+                <h1 id="tipotext" class="alert alert-secondary mt-3">&nbsp;</h1>
+                <button class="btn btn-lg" id="btnverqr">Abrir QR Code</button>
+            </div>
+        </div>
+        <div class="qrpai">
+            <div id="qrcodeCanvas">
+
+            </div>
+            <button id="comecabtn" class="btn btn-lg mt-3">Começar</button>
+        </div>
+    </div>
+    <div id="app">
+        <div id="menu" class="center">
+            É a vez do time <span id="nometime"></span> ! <button class="btn btn-lg btn-success"
+                id="botaojogar">Jogar</button>
+        </div>
+
+        <div id="tabuleiro">
+            <div id="linha1">
+                <div id="casa-1" data-casa="1" class="bg-white casas">
+                    <div class="pinoverde bg-success"></div>
+                    <div class="pinovermelho bg-danger"></div>
+                </div>
+
+                <div id="casa-2" data-casa="2" data-tipo="objeto" class="casas objeto">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+                <div id="casa-3" data-casa="3" data-tipo="acao" class="casas acao">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-4" data-casa="4" data-tipo="dificil" class="casas dificil">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-5" data-casa="5" data-tipo="culturapop" class="casas culturapop">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-6" data-casa="6" data-tipo="pessoa" class="casas pessoa">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+
+
+                <div id="casa-7" data-casa="7" data-tipo="lugar" class="casas lugar">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+                <div id="casa-8" data-casa="8" data-tipo="objeto" class="casas objeto">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-9" data-casa="9" data-tipo="acao" class="casas acao">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-10" data-casa="10" data-tipo="dificil" class="casas dificil">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+
+            </div>
+            <div id="linha2" class="text-right linha-right">
+                <div id="casa-11" data-casa="11" data-tipo="culturapop" class="casas culturapop">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+            </div>
+            <div id="linha3">
+
+                <div id="casa-21" data-casa="10" data-tipo="dificil" class="casas dificil">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-20" data-casa="9" data-tipo="acao" class="casas acao">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-19" data-casa="8" data-tipo="objeto" class="casas objeto">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+
+                <div id="casa-18" data-casa="18" data-tipo="lugar" class="casas lugar">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+
+                <div id="casa-17" data-casa="17" data-tipo="pessoa" class="casas pessoa">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+
+                
+                <div id="casa-16" data-casa="16" data-tipo="culturapop" class="casas culturapop">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+
+                <div id="casa-15" data-casa="10" data-tipo="dificil" class="casas dificil">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-14" data-casa="9" data-tipo="acao" class="casas acao">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-13" data-casa="8" data-tipo="objeto" class="casas objeto">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-12" data-casa="7" data-tipo="lugar" class="casas lugar">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+               
+                
+                
+                
+            </div>
+            <div id="linha4">
+
+                <div id="casa-22" data-casa="22" data-tipo="culturapop" class="casas culturapop">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+            </div>
+                <div id="linha5">
+                <div id="casa-23" data-casa="23" data-tipo="pessoa" class="casas pessoa">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+
+
+                <div id="casa-24" data-casa="24" data-tipo="lugar" class="casas lugar">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+                <div id="casa-25" data-casa="25" data-tipo="objeto" class="casas objeto">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-26" data-casa="26" data-tipo="acao" class="casas acao">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-27" data-casa="27" data-tipo="dificil" class="casas dificil">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+                <div id="casa-28" data-casa="28" data-tipo="culturapop" class="casas culturapop">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+                <div id="casa-29" data-casa="29" data-tipo="pessoa" class="casas pessoa">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+
+
+                <div id="casa-30" data-casa="30" data-tipo="lugar" class="casas lugar">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+                <div id="casa-31" data-casa="31" data-tipo="objeto" class="casas objeto">
+                    <div class="pinoverde bg-success" style="display: none;"></div>
+                    <div class="pinovermelho bg-danger" style="display: none;"></div>
+                </div>
+
+               
+                    <div id="casa-32" data-casa="32" data-tipo="dificil" class="casas fim">
+                        <div class="pinoverde bg-success" style="display: none;"></div>
+                        <div class="pinovermelho bg-danger" style="display: none;"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <script type="text/javascript" src="assets/lib/qr/jquery.qrcode.js"></script>
+    <script type="text/javascript" src="assets/lib/qr/qrcode.js"></script>
+
+    <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jsons.js"></script>
+    <script src="assets/js/scripts.js"></script>
+
+</body>
+
+</html>
