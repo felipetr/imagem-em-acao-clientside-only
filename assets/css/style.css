@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+*
+{
+    overflow: hidden;
+}
+html, body {
+  
+    font-size: 18px;
+    font-weight: 300;
+    height: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+#app
+{
+    width: 1920px;
+    height: 1080px;
+    border: 1px solid #000;
+    background: url(../imagens/bg.svg) center top;
+    background-size: cover;
+    position: absolute;
+}
+
+#menu
+{
+    position: absolute;
+    font-size: 30px;
+    background: url(../imagens/bg.svg) center top;
+    background-size: cover;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    right:0;
+    left:0;
+    top:0;
+    height: 100px;
+    line-height: 100px;
+    font-weight: bold;
+    padding-left: 15px;
+    text-align: left;
+}
+
+#botaojogar
+{
+    position: absolute;
+    top: 15px;
+    font-size: 30px;
+    right: 15px;
+}
+
+#tabuleiro
+{
+    padding: 185px 87px;
+    padding-bottom: 0 !important;
+    display: block;
+
+}
+
+
+.casas
+{
+    border: 1px solid #ddd;
+    background: white;
+    font-weight: 900;
+    width: 136px;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 100px;
+    line-height: 127px;
+    height: 127px;
+    position: relative;
+    margin: 14px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    display: inline-block;
+
+}
+.linha-right
+{
+    padding-right: 64px;
+}
+
+.pinoverde, .pinovermelho
+{
+    position: absolute;
+    z-index: 50;
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    left: calc(50% - 20px);
+}
+
+.pinoverde
+{
+    top: 15px;
+}
+
+
+
+.pinovermelho
+{
+    bottom: 15px;
+}
+.casas::after{
+    position: absolute;
+    left:0;
+    right: 0;
+}
+.casas.objeto
+{
+    color: #856404;
+background-color: #fff3cd;
+border-color: #ffeeba;
+}
+.casas.objeto::after
+{
+    content: 'O';
+}
+
+.casas.acao
+{
+        color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+
+    
+}
+.casas.acao::after
+{
+    content: 'A';
+}
+.casas.dificil
+{
+        color: #fff;
+    background-color: #343a40;
+    border-color: #79343a40;
+
+    
+}
+
+
+.casas.dificil::after
+{
+    content: 'D';
+}
+.casas.culturapop
+{
+    color: #721c24;
+background-color: #f8d7da;
+border-color: #f5c6cb;
+
+    
+}
+.casas.culturapop::after
+{
+    content: 'C';
+}
+
+
+
+.casas.pessoa
+{
+        color: #5a3295;
+    background-color: #9d8db5;
+    border-color: #9d8db5;
+
+    
+}
+
+.casas.pessoa::after
+{
+    content: 'P';
+}
+
+.casas.lugar {
+    color: #1b1e21;
+    background-color: #d6d8d9;
+    border-color: #c6c8ca;
+}
+.casas.lugar::after
+{
+    content: 'L';
+}
+
+.casas.fim
+{
+    background: url('../imagens/fim.png') center center;
+    background-size: cover;
+}
+
+#modalbg
+{
+    position: fixed;
+    top:0;
+    bottom: 0;
+    background: rgba(0,0,0,.75);
+    -webkit-box-shadow: inset 0px 0px 526px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: inset 0px 0px 526px 0px rgba(0,0,0,0.75);
+box-shadow: inset 0px 0px 526px 0px rgba(0,0,0,0.75);
+left: 0;
+right: 0;
+z-index: 99;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+#ganhoupai
+{
+    position: fixed;
+    top:0;
+    left: 0;
+right: 0;
+
+    bottom: 0;
+    color:white;
+display: flex;
+z-index: 100;
+align-items: center;
+justify-content: center;
+text-align: center;
+
+}
+#ganhoupai h1
+{
+    font-size: 100px !important;
+}
+
+.campocentral, .qrpai
+{
+    display: inline-block;
+    width: 300px;
+}
+.qrpai
+{
+    width: 360px;
+}
+#qrcodeCanvas
+{
+    padding: 30px;
+    width: 360px;
+    background: white;
+    border-radius: 6px;
+}
+
+#contador
+{
+    font-size: 80px;
+}
+
+.dado
+{
+    border-radius: 6px;
+    width: 300px;
+    height: 300px;
+    background: url(../imagens/dado.jpg);
+    background-size: 300%;
+    
+}
+
+.dadogif
+{
+    background: url(../imagens/dado.gif);
+    background-size: 100% !important;
+}
+
+.dado1
+{
+    background-position: top left;
+}
+
+
+.dado2
+{
+    background-position: top center;
+}
+
+
+.dado3
+{
+    background-position: top right;
+}
+
+
+.dado4
+{
+    background-position: bottom left;
+}
+
+
+.dado5
+{
+    background-position: bottom center;
+}
+
+
+.dado6
+{
+    background-position: bottom right;
+}
+
+

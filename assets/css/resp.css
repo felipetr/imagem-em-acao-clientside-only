@@ -1,0 +1,81 @@
+.show-only-xl, .show-only-lg, .show-only-md, .show-only-sm, .show-only-xs
+{
+	display: none;
+}
+
+/* sm */
+@media (min-width: 576px) {
+  
+}
+
+/* md */
+@media (min-width: 768px) {
+  
+}
+
+/* lg */
+@media (min-width: 992px)  {
+  
+}
+
+/* xl */
+@media (min-width: 1200px) {
+  .show-only-xl
+  {
+	  display: block !important;
+  }
+}
+ 
+
+/* Inverse */
+
+
+/* lg */
+@media (max-width: 1199px) {
+  
+}
+
+/* md */
+@media (max-width: 991px) {
+  
+}
+
+/* sm */
+@media (max-width: 767px) {
+  
+}
+
+/* xs */
+@media (max-width: 575px) {
+  .show-only-xs
+  {
+	  display: block !important;
+  }
+}
+
+/* Excludentes */
+
+/* sm */
+@media (min-width: 576px) and (max-width: 767px) {
+  .show-only-sm
+  {
+	  display: block !important;
+  }
+}
+
+/* md */
+@media (min-width: 768px) and (max-width: 991px){
+   .show-only-md
+  {
+	  display: block !important;
+  }
+}
+
+/* lg */
+@media (min-width: 992px) and (max-width: 1199px) {
+   .show-only-lg
+  {
+	  display: block !important;
+  }
+}
+
