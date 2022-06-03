@@ -1,7 +1,7 @@
 # Imagem e Ação para Navegadores
 
 
-Uma versão para navegadores apenas client side, do icônico jogo de tabuleiro "Imagem e Ação"
+Uma versão para navegadores apenas client side, do icônico jogo de tabuleiro "Imagem e Ação" para telas FullHD
 
 
 Demo: http://felipetravassos.com/iec/
